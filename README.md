@@ -3,8 +3,11 @@
 <br/>
 
 ### Problem summary:
-##### [Full problem statement here](https://onlinejudge.org/external/101/10135.pdf)
-You are given a set of Cartesian points that each represent the location of a "Frosh" (a college freshman) relative to the telephone post in meters. The telephone has the coordinate points of the origin (0,0). The goal is for all the "frosh" to be round up with "the minimum amount of silk necessary to encircle all the frosh". <sup>1</sup>
+##### [[Full problem statement here](https://onlinejudge.org/external/101/10135.pdf)]
+You are given a set of Cartesian points that each represent the location of a "Frosh" (a college freshman) relative to the telephone post in meters. The telephone has the coordinate point of the origin (0,0). The goal is for all the "Frosh" to be round up with "the minimum amount of silk necessary to encircle all the Frosh". <sup>1</sup> The restriction is that there will be no more than 1000 Frosh.
+
+### The Goal:
+Given that information, it is clear that the goal of the problem is to construct some sort of polygon, given the coordinates of the Frosh, where the polygon has the smallest perimeter possible. Furthermore, it is important to note that the starting point of the silk will begin at the telephone pole, and then return to the telephone
 
 
 
