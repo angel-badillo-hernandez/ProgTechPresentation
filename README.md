@@ -37,14 +37,14 @@ for c = 0 : 1 : T
     
     # Read in all frosh coords
     for i = 0 : 1 : N
-        froshPoints[i] = input()
+        F[i] = input()
     end-for
     
-    # Find the convex hull for given set of coords, F
-    convexHull = computeConvexHull(froshPoints)
+    # Find the set of points that form the convex hull, C, for given set of coords, F
+    C = GrahamScan(F)
     
     # Compute the perimeter, P of convex hull
-    P = perimeter(convexHull)
+    P = perimeter(C)
     
     # Find shortest length from origin to vertex of convex hull
     S = shortestSide(origin, convexHull)
