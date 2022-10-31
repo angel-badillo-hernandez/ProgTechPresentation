@@ -3,7 +3,7 @@
 <br/>
 
 ### Problem summary:
-##### [Full problem statement here](./10135.pdf)
+##### [Full problem statement here](https://onlinejudge.org/external/101/10135.pdf)
 You are given a set of Cartesian points that each represent the location of a "Frosh" (a college freshman) relative to the telephone post in meters. The telephone has the coordinate points of the origin (0,0). The goal is for all the "frosh" to be round up with "the minimum amount of silk necessary to encircle all the frosh". <sup>1</sup>
 
 
