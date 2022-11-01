@@ -18,6 +18,17 @@ l = P + 2s
 ### Explanation
 Given the information in the problem statement, it is clear that the goal of the problem is to construct some sort of polygon, given the coordinates of the Frosh, where the polygon has the smallest perimeter possible. It can be ruled out that a non-convex polygon, or concave polygon would not be of good use in this situation, as it would not provide that shortest possible perimeter. Furthermore, even the smallest possible circle that will encompass all the freshman would be of no use, as it would still require constructing a polygon, a cylic polgyon to be exact, and such a polygon would still have a perimeter smaller than the circle.<sup>5</sup>
 
+### Non-convex Polygon Example
+##### Image source: https://en.wikipedia.org/wiki/Convex_hull#/media/File:Convex_hull_of_a_simple_polygon.svg
+> ![Convex_hull_of_a_simple_polygon](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Convex_hull_of_a_simple_polygon.svg/1024px-Convex_hull_of_a_simple_polygon.svg.png)
+> <br> In the image above, the combination of the blue and yellow portions represent the convex hull, and the blue portion alone represents a simple polygon.<sup>6</sup> From mere observation, it can be concluded that the simple polygon would have a much greater perimeter than the convex hull, thus finding the perimeter of a non-convex polygon is not of use for solving the "Herding the Frosh" problem.
+
+### Circle Example
+##### Image source: https://useruploads.socratic.org/wwCKF99KTWGvJwQllTV9_equilateralTriangle.gif
+>![InscribedTriangle](https://useruploads.socratic.org/wwCKF99KTWGvJwQllTV9_equilateralTriangle.gif)
+> <br> In the figure above, the inscribed equilateral has a side length of 
+approximately 58.25, thus the perimeter of the triangle is 174.75.<sup>4</sup> The circumference of the circle is 2πr, where the radius r is 36. The circumference of the circle above is approximately 226.19, therefore my previously stated conjectured regarding the circumscribing circle not having the smallest length of silk holds true. For other polygons, it holds, since every polgyon inscribed in a circle is convex, but I shall spare the proof as it is a bit tedious to prove such a statement.
+
 ### Simple Psuedocode for the Solution
 ```python
 # Coordinates of telephone pole, O
@@ -51,7 +62,10 @@ for c = 0 : 1 : T-1
     D[C.size]
 
     # Calculate each distance from each vertex to O, then put into D.
-    # Then, calculate each edge length of the convex hull and add to P
+    # Then, calculate each edge length of the convex hull and add to P.
+    # NOTE: It is assumed that the points are ordered in such a manner that
+    # you would be looping over them in a clock-wise / counterclock-wise manner,
+    # so each edge would be computed correctly.
     for i = 0:1:C.size-1
         D[i] = distance(C[i], origin)
         P += distance(C[i+1 % C.size], C[i])
@@ -87,3 +101,4 @@ end-for
 3. GeeksforGeeks. [Quickhull Algorithm for Convex Hull](https://www.geeksforgeeks.org/quickhull-algorithm-convex-hull/). GeeksforGeeks. Published April 19, 2017. https://www.geeksforgeeks.org/quickhull-algorithm-convex-hull/
 4. Socratic. [How Do You Find Length of Sides of an Equilateral Triangle Inscribed in a Circle with a Radius of 36?](https://socratic.org/questions/how-do-you-find-length-of-sides-of-an-equilateral-triangle-inscribed-in-a-circle). Socratic.org. Published 2015. https://socratic.org/questions/how-do-you-find-length-of-sides-of-an-equilateral-triangle-inscribed-in-a-circle
 5. Michigan State University. [Cyclic Polygon](https://archive.lib.msu.edu/crcmath/math/math/c/c885.htm). Michigan State University. https://archive.lib.msu.edu/crcmath/math/math/c/c885.htm
+6. Eppstein D. [Convex Hull ( in Blue and Yellow) of a Simple Polygon (in Blue)](https://en.wikipedia.org/wiki/Convex_hull#/media/File:Convex_hull_of_a_simple_polygon.svg).; 2019. https://en.wikipedia.org/wiki/Convex_hull#/media/File:Convex_hull_of_a_simple_polygon.svg
