@@ -14,12 +14,12 @@ Given the information in the problem statement, it is clear that the goal of the
 
 ### Non-convex Polygon Example
 ##### Image source: https://en.wikipedia.org/wiki/Convex_hull#/media/File:Convex_hull_of_a_simple_polygon.svg
-> ![Convex_hull_of_a_simple_polygon](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Convex_hull_of_a_simple_polygon.svg/1024px-Convex_hull_of_a_simple_polygon.svg.png)
+> ![Convex_hull_of_a_simple_polygon](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Convex_hull_of_a_simple_polygon.svg/1024px-Convex_hull_of_a_simple_polygon.svg.png) <br>
 > <br> In the image above, the combination of the blue and yellow portions represent the convex hull, and the blue portion alone represents a simple polygon.<sup>6</sup> From mere observation, it can be concluded that the simple polygon would have a much greater perimeter than the convex hull, thus finding the perimeter of a non-convex polygon is not of use for solving the "Herding the Frosh" problem.
 
 ### Circle Example
 ##### Image source: https://useruploads.socratic.org/wwCKF99KTWGvJwQllTV9_equilateralTriangle.gif
->![InscribedTriangle](https://useruploads.socratic.org/wwCKF99KTWGvJwQllTV9_equilateralTriangle.gif)
+>![InscribedTriangle](https://useruploads.socratic.org/wwCKF99KTWGvJwQllTV9_equilateralTriangle.gif) <br>
 > <br> In the figure above, the inscribed equilateral has a side length of 
 approximately 58.25, thus the perimeter of the triangle is 174.75.<sup>4</sup> The circumference of the circle is 2πr, where the radius r is 36. The circumference of the circle above is approximately 226.19, therefore my previously stated conjectured regarding the circumscribing circle not having the smallest length of silk holds true. For other polygons, it holds, since every polgyon inscribed in a circle is convex, but I shall spare the proof as it is a bit tedious to prove such a statement.
 
@@ -30,7 +30,9 @@ l = P + 2s
 ```
 
 ### Working it out by hand:
-> ![Simple_input](simple_input.png)
+> ![Simple_input](simple_input.png) <br>
+> <br>
+> This image represents the sample input provided in the [problem statement](https://onlinejudge.org/external/101/10135.pdf)
 
 ### Simple Psuedocode for the Solution
 ```python
