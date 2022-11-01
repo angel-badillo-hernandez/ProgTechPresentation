@@ -32,7 +32,7 @@ l = P + 2s
 ### Working it out by hand:
 > ![Simple_input](simple_input.png) <br>
 > <br>
-> This image represents the sample input provided in the [problem statement](https://onlinejudge.org/external/101/10135.pdf)
+> This image represents the sample input provided in the [problem statement](https://onlinejudge.org/external/101/10135.pdf), which consisted of the points `(1.0, 1.0), (-1.0 ,1.0), (-1.0, -1.0)`, and `(1.0, -1.0)`. Given that this is a square, it is quite simple to calculate the perimeter, as well as the shortest length from the origin to a vertex. All sides of a square are congruent, and the diagonals are congruent as well. From there, we just used the distance formula to calculate the side length, as well as to find the length from the origin to the vertex. The side length is 2, and the length from the origin to the vertex is √2. Using the previously mentioned formula for finding the shortest length of silk to be used, we get _l_ = 8 + 2√2 = 10.83 (rounded to 2 decimal places), which is exactly what the sample output is.
 
 ### Simple Psuedocode for the Solution
 ```python
