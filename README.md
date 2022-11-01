@@ -94,7 +94,12 @@ for c = 0 : 1 : T-1
 end-for
 ```
 
-
+### How to Find the Convex Hull
+There are many algorithms out there to find the set of points that form a convex hull, but the two algorithms I tried out. The first I tried out was the Quickhull algorithm, which is a divide and conquer algorithm, just like the Quicksort algorithm.<sup>3</sup> The average time complexity of this algorithm is O(NlogN), but the worst case is O(n<sup>2</sup>). The way the algorithm works, is that it divides the 3rd step into two subproblems, and solves them recursively.<sup>3</sup> The 4 steps to finding the convex hull as described by the algorithm is as follows:
+> 1. Find the point with minimum x-coordinate lets say, min_x and similarly the point with maximum x-coordinate, max_x.
+> 2. Make a line joining these two points, say L. This line will divide the whole set into two parts. Take both the parts one by one and proceed further.
+> 3. For a part, find the point P with maximum distance from the line L. P forms a triangle with the points min_x, max_x. It is clear that the points residing inside this triangle can never be the part of convex hull.
+> 4. The above step divides the problem into two sub-problems (solved recursively). Now the line joining the points P and min_x and the line joining the points P and max_x are new lines and the points residing outside the triangle is the set of points. Repeat point no. 3 till there no point left with the line. Add the end points of this point to the convex hull.<sup>3</sup>
 
 
 
