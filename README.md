@@ -16,38 +16,56 @@ l = P + 2s
 ```
 
 ### Explanation
-Given the information in the problem statement, it is clear that the goal of the problem is to construct some sort of polygon, given the coordinates of the Frosh, where the polygon has the smallest perimeter possible. It can be ruled out that a non-convex polygon, or concave polygon would not be of good use in this situation, as it would not provide that shortest possible perimeter. Furthermore, even the smallest possible circle that will encompass all the freshman would be of no use, as it would still require constructing a polygon, a cylic polgyon to be exact. Taking that into consid
+Given the information in the problem statement, it is clear that the goal of the problem is to construct some sort of polygon, given the coordinates of the Frosh, where the polygon has the smallest perimeter possible. It can be ruled out that a non-convex polygon, or concave polygon would not be of good use in this situation, as it would not provide that shortest possible perimeter. Furthermore, even the smallest possible circle that will encompass all the freshman would be of no use, as it would still require constructing a polygon, a cylic polgyon to be exact, and such a polygon would still have a perimeter smaller than the circle.<sup>5</sup>
 
 ### Simple Psuedocode for the Solution
 ```python
-# Coordinates of telephone pole
+# Coordinates of telephone pole, O
 origin = (0,0)
 
 # no. of test cases
 T = input()
 
 # Find the shortest length of silk for each case
-for c = 0 : 1 : T
+for c = 0 : 1 : T-1
     
     # get no. of Frosh
     N = input()
     
-    # Create viable data structure to hold N no. frosh coords
+    # Create viable data structure, array, to hold N no. frosh coords
     F[N]
     
     # Read in all frosh coords
-    for i = 0 : 1 : N
+    for i = 0 : 1 : N-1
         F[i] = input()
     end-for
     
     # Find the set of points that form the convex hull, C, for given set of coords, F
-    C = GrahamScan(F)
+    # Refer to https://www.geeksforgeeks.org/convex-hull-set-2-graham-scan/ for more info
+    C[] = GrahamScan(F)
     
     # Compute the perimeter, P of convex hull
-    P = perimeter(C)
+    P = 0
     
-    # Find shortest length from origin to vertex of convex hull
-    S = shortestSide(origin, convexHull)
+    # Save set of shortest distances to O, D for later use
+    D[C.size]
+
+    # Calculate each distance from each vertex to O, then put into D.
+    # Then, calculate each edge length of the convex hull and add to P
+    for i = 0:1:C.size-1
+        D[i] = distance(C[i], origin)
+        P += distance(C[i+1 % C.size], C[i])
+    end-for
+    
+    # Set first side length as shortest length to begin
+    S = D[0]
+    
+    # Iterate through all side lengths, set S to D[i] if shorter side found
+    for i = 1:1:D.size-1
+        if D[i] < S
+            S = D[i]
+        end-if
+    end-for
     
     # Calculate total length
     l = P + 2*s
@@ -65,5 +83,7 @@ end-for
 
 ## References:
 1. [10135 Herding Frosh](https://onlinejudge.org/external/101/10135.pdf). https://onlinejudge.org/external/101/10135.pdf
-1. GeeksforGeeks. [Convex Hull | Set 2 (Graham Scan)](https://www.geeksforgeeks.org/convex-hull-set-2-graham-scan/). GeeksforGeeks. Published July 24, 2013. https://www.geeksforgeeks.org/convex-hull-set-2-graham-scan/
-1. GeeksforGeeks. [Quickhull Algorithm for Convex Hull](https://www.geeksforgeeks.org/quickhull-algorithm-convex-hull/). GeeksforGeeks. Published April 19, 2017. https://www.geeksforgeeks.org/quickhull-algorithm-convex-hull/
+2. GeeksforGeeks. [Convex Hull | Set 2 (Graham Scan)](https://www.geeksforgeeks.org/convex-hull-set-2-graham-scan/). GeeksforGeeks. Published July 24, 2013. https://www.geeksforgeeks.org/convex-hull-set-2-graham-scan/
+3. GeeksforGeeks. [Quickhull Algorithm for Convex Hull](https://www.geeksforgeeks.org/quickhull-algorithm-convex-hull/). GeeksforGeeks. Published April 19, 2017. https://www.geeksforgeeks.org/quickhull-algorithm-convex-hull/
+4. Socratic. [How Do You Find Length of Sides of an Equilateral Triangle Inscribed in a Circle with a Radius of 36?](https://socratic.org/questions/how-do-you-find-length-of-sides-of-an-equilateral-triangle-inscribed-in-a-circle). Socratic.org. Published 2015. https://socratic.org/questions/how-do-you-find-length-of-sides-of-an-equilateral-triangle-inscribed-in-a-circle
+5. Michigan State University. [Cyclic Polygon](https://archive.lib.msu.edu/crcmath/math/math/c/c885.htm). Michigan State University. https://archive.lib.msu.edu/crcmath/math/math/c/c885.htm
