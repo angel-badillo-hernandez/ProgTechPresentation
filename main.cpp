@@ -175,10 +175,30 @@ int main()
         // Find convex hull using Graham
         convexHull(frosh, hull);
 
+        double P = 0;
+        vector<double> distances(hull.size());
+
         for (int i = 0; i < hull.size(); i++)
         {
-            cout << hull[i].x << ' ' << hull[i].y << '\n';
+            // Calculate distance from origin to vertex
+            // Calculate perimeter here
         }
+
+        double S = 0;
+
+        // Find shortest length from origin to vertex
+        for (int i = 0; i < distances.size(); i++)
+        {
+            if(distances[i] < S)
+            S = distances[i];
+        }
+        
+        // Min silk length
+        double length = P + 2*S;
+
+
+        printf("%.2f\n", length);
     }
+    printf("\n");
     return 0;
 }
