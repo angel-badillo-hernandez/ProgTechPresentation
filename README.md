@@ -9,12 +9,6 @@ You are given a set of Cartesian points that each represent the location of a "F
 ### The Goal:
 Essentially, the goal is to find the minimum length of silk need to surround all the "Frosh". The silk will be tied to a telephone pole, will enclose all the "Frosh" in a manner that the minimum length of silk will be used, and will finally return back to the telephone to be tied.
 
-### How To Solve:
-The solution here is to take the set of points in the test case to come up with a convex hull. Then, from there we will find the shortest length from the origin to a vertex of the convex hull. Once that is done, we will compute the length of silk,  _`l`_, using the perimeter of the polygon create by the convex hull, _`P`_, and the shortest length from the origin to a vertex, _`s`_. The formula for the shortest length of silk used will be:
-```
-l = P + 2s
-```
-
 ### Explanation
 Given the information in the problem statement, it is clear that the goal of the problem is to construct some sort of polygon, given the coordinates of the Frosh, where the polygon has the smallest perimeter possible. It can be ruled out that a non-convex polygon, or concave polygon would not be of good use in this situation, as it would not provide that shortest possible perimeter. Furthermore, even the smallest possible circle that will encompass all the freshman would be of no use, as it would still require constructing a polygon, a cylic polgyon to be exact, and such a polygon would still have a perimeter smaller than the circle.<sup>5</sup>
 
@@ -28,6 +22,15 @@ Given the information in the problem statement, it is clear that the goal of the
 >![InscribedTriangle](https://useruploads.socratic.org/wwCKF99KTWGvJwQllTV9_equilateralTriangle.gif)
 > <br> In the figure above, the inscribed equilateral has a side length of 
 approximately 58.25, thus the perimeter of the triangle is 174.75.<sup>4</sup> The circumference of the circle is 2πr, where the radius r is 36. The circumference of the circle above is approximately 226.19, therefore my previously stated conjectured regarding the circumscribing circle not having the smallest length of silk holds true. For other polygons, it holds, since every polgyon inscribed in a circle is convex, but I shall spare the proof as it is a bit tedious to prove such a statement.
+
+### How To Solve:
+The solution here is to take the set of points in the test case to come up with a convex hull. Then, from there we will find the shortest length from the origin to a vertex of the convex hull. Once that is done, we will compute the length of silk,  _`l`_, using the perimeter of the polygon create by the convex hull, _`P`_, and the shortest length from the origin to a vertex, _`s`_. The formula for the shortest length of silk used will be:
+```
+l = P + 2s
+```
+
+### Working it out by hand:
+> ![Simple_input](simple_input.png)
 
 ### Simple Psuedocode for the Solution
 ```python
